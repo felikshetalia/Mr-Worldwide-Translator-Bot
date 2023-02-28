@@ -1,9 +1,9 @@
 import discord
-import responses
+from responses import get_response, join_voice
 
 async def send_message(message, user_message, is_private):
     try:
-        response = responses.get_response(user_message)
+        response = get_response(user_message)
         await message.author.send(response) if is_private else await message.channel.send(response)
 
     except Exception as e:
@@ -34,8 +34,11 @@ def run_bot():
         if user_message[0] == '?':
             user_message = user_message[1:]  # [1:] Removes the '?'
             await send_message(msg, user_message, is_private=True)
+        elif msg.content.startswith("!join"):
+            await join_voice(msg)
         else:
             await send_message(msg, user_message, is_private=False)
+
 
     # Remember to run your bot with your personal TOKEN
     client.run(TOKEN)
