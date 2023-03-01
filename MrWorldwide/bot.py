@@ -1,5 +1,6 @@
 import discord
 from responses import get_response, join_voice
+import os
 
 async def send_message(message, user_message, is_private):
     try:
@@ -11,7 +12,7 @@ async def send_message(message, user_message, is_private):
 
 
 def run_bot():
-    TOKEN = 'MTA3OTQwNzMyMjgwNTMyNTkyNA.GVzkuQ.z40fPI0i4f9d2MizKCj06xArSSL8U-29FO29LU'
+    TOKEN = 'MTA3OTQwNzMyMjgwNTMyNTkyNA.GSrY8b.KxIl8P8ie49co9HBQ6y-79WWYTdpZ0lHPl-pKg'
     intents = discord.Intents.default()
     intents.message_content = True
     client = discord.Client(intents=intents)
